@@ -21,8 +21,9 @@ using Http;
  *
  * Auth: club creation and the roster read require
  * `Authorization: Bearer <token>` and caller membership of `{spaceID}` (the
- * operator's business space). The public club page and registration submit
- * need NO auth (anonymous parent flow).
+ * operator's business space). The public club page needs NO auth. Registration
+ * submit also REQUIRES `Authorization: Bearer <token>` — the parent must be
+ * signed in; their UID is recorded as the consenting guardian.
  */
 @service(#{ title: "Kids Club API" })
 @route("/v0/api4kidsclub")
@@ -136,12 +137,13 @@ interface Clubs {
 @tag("registrations")
 interface Registrations {
   /**
-   * Submit children to a club's registration list. No auth required
-   * (anonymous parent flow); the caller's uid is stamped as `byUID` when
-   * signed in, else recorded anonymously.
+   * Submit children to a club's registration list. Auth REQUIRED — the
+   * parent must be signed in (`Authorization: Bearer <token>`); the server
+   * stamps the caller's uid as `byUID` on the resulting `ConsentAcceptance`.
    */
   @post
   @route("/clubs/{clubID}/registrations")
+  @useAuth(BearerAuth)
   createRegistration(@path clubID: string, @body body: RegistrationRequest): {
     @statusCode statusCode: 201;
     @body registration: RegistrationResponse;
