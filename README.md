@@ -1,7 +1,7 @@
-# kids-club-contract
+# ext-kids-club
 
-Public **contract surface** for the `kidsclub` extension, following the
-[`<id>-contract` repo-naming convention](https://github.com/sneat-co/sneat-specs/blob/main/standards/repo-naming.md).
+Public **extension-definition repo** for the `kidsclub` extension, following the
+[`ext-<id>` repo-naming convention](https://github.com/sneat-co/sneat-specs/blob/main/standards/repo-naming.md).
 
 It holds the **frozen wire shapes** other repos need in order to *talk to*
 Kids Club — the TypeSpec source of truth and the matching Go DTOs. It
@@ -11,9 +11,9 @@ contains **no** Kids Club implementation; that lives in
 ## Layout
 
 ```
-kids-club-contract/
+ext-kids-club/
 ├── typespec/           # api4kidsclub.tsp — source of truth for the wire shape
-└── backend/            # Go module github.com/sneat-co/kids-club-contract/backend
+└── backend/            # Go module github.com/sneat-co/ext-kids-club/backend
     └── dto4kidsclub/   # package dto4kidsclub — the frozen request/response DTOs
 ```
 
@@ -23,8 +23,9 @@ hand-kept in sync (same convention as `eventius/typespec` and the
 
 ## Discovery
 
-Tagged `sneat-extension-contract` — see all contract repos at
-[`github.com/sneat-co?q=topic:sneat-extension-contract`](https://github.com/orgs/sneat-co/repositories?q=topic%3Asneat-extension-contract).
+Tagged `sneat-extension-definition` (with legacy `sneat-extension-contract`
+during migration) — see all extension-definition repos at
+[`github.com/sneat-co?q=topic:sneat-extension-definition`](https://github.com/orgs/sneat-co/repositories?q=topic%3Asneat-extension-definition).
 
 ## Status
 

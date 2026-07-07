@@ -1,3 +1,3 @@
-module github.com/sneat-co/kids-club-contract/backend
+module github.com/sneat-co/ext-kids-club/backend
 
 go 1.26
