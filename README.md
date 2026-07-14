@@ -15,6 +15,7 @@ ext-kids-club/
 ├── typespec/           # api4kidsclub.tsp — source of truth for the wire shape
 └── backend/            # Go module github.com/sneat-co/ext-kids-club/backend
     └── dto4kidsclub/   # package dto4kidsclub — the frozen request/response DTOs
+└── frontend/           # Nx-built @sneat/extension-kidsclub-contract package
 ```
 
 No emitters are configured — the `.tsp` file and the Go package are
