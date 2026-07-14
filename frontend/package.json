@@ -1,1 +1,36 @@
-{"name":"@sneat/extension-kidsclub-contract","version":"0.0.1","type":"module","main":"./dist/index.js","types":"./dist/index.d.ts","exports":{".":{"types":"./dist/index.d.ts","default":"./dist/index.js"}},"files":["dist"],"publishConfig":{"access":"public"},"scripts":{"build":"rm -rf dist && tsc -p tsconfig.build.json","typecheck":"tsc --noEmit","test":"vitest run"},"peerDependencies":{"@angular/core":"^21.0.0","rxjs":"^7.0.0"},"devDependencies":{"@angular/core":"21.2.9","@nx/js":"22.7.5","nx":"22.7.5","rxjs":"7.8.2","typescript":"~5.9.3","vitest":"4.0.9"}}
+{
+  "name": "@sneat/extension-kidsclub-contract",
+  "version": "0.0.2",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "@angular/core": "^21.0.0",
+    "rxjs": "^7.0.0"
+  },
+  "devDependencies": {
+    "@angular/core": "21.2.9",
+    "@nx/js": "22.7.5",
+    "nx": "22.7.5",
+    "rxjs": "7.8.2",
+    "typescript": "~5.9.3",
+    "vitest": "4.0.9"
+  }
+}
