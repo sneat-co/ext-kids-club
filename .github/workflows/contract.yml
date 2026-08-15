@@ -23,7 +23,7 @@ jobs:
         run: pnpm run typecheck && pnpm run build
       - name: Frontend contract test with coverage
         working-directory: frontend
-        run: pnpm exec vitest run --coverage --coverage.reporter=lcov
+        run: pnpm exec vitest run --exclude=dist/** --coverage --coverage.reporter=lcov
       - uses: sneat-co/cicd/actions/check-lcov-coverage@11e88b45a49ef9626f6bfa8e54c317772e848a93
         with:
           coverage-path: frontend/coverage
