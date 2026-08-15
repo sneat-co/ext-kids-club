@@ -1,0 +1,45 @@
+name: Contract CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    name: contract
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: sneat-co/cicd/actions/setup-pnpm-node@11e88b45a49ef9626f6bfa8e54c317772e848a93
+        with:
+          working-directory: frontend
+          pnpm-version: "11.20.0"
+      - name: Frontend typecheck and production build
+        working-directory: frontend
+        run: pnpm run typecheck && pnpm run build
+      - name: Frontend contract test with coverage
+        working-directory: frontend
+        run: pnpm exec vitest run --coverage --coverage.reporter=lcov
+      - uses: sneat-co/cicd/actions/check-lcov-coverage@11e88b45a49ef9626f6bfa8e54c317772e848a93
+        with:
+          coverage-path: frontend/coverage
+          minimum-percent: 100
+      - uses: actions/setup-go@v6
+        with:
+          go-version-file: backend/go.mod
+      - name: Backend vet, race test, build, and test
+        working-directory: backend
+        run: go vet ./... && go test -race ./... && go build ./... && go test ./...
+      - name: Record zero-instrumentable-statement diagnostic
+        working-directory: backend
+        shell: bash
+        run: |
+          set -euo pipefail
+          go test ./... -coverprofile=coverage.out
+          total="$(go tool cover -func=coverage.out | awk '/^total:/ { print $3 }')"
+          test "$total" = "0.0%"
+          echo "::warning::Backend has zero instrumentable production statements; coverage exemption remains blocked on the CICD policy decision."
