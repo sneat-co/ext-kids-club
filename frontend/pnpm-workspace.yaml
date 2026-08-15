@@ -1,0 +1,4 @@
+allowBuilds:
+  nx: true
+onlyBuiltDependencies:
+  - nx
