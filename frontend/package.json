@@ -20,7 +20,7 @@
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run --exclude=dist/**"
   },
   "peerDependencies": {
     "@angular/core": "^21.0.0",
