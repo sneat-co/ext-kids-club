@@ -1,6 +1,6 @@
 {
   "name": "@sneat/extension-kidsclub-contract",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "packageManager": "pnpm@11.20.0",
   "main": "./dist/index.js",
