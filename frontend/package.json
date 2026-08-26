@@ -2,7 +2,7 @@
   "name": "@sneat/extension-kidsclub-contract",
   "version": "0.0.3",
   "type": "module",
-  "packageManager": "pnpm@11.20.0",
+  "packageManager": "pnpm@11.24.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -27,12 +27,12 @@
     "rxjs": "^7.0.0"
   },
   "devDependencies": {
-    "@angular/core": "21.2.20",
+    "@angular/core": "21.2.21",
     "@nx/js": "22.7.8",
-    "@vitest/coverage-v8": "4.1.10",
+    "@vitest/coverage-v8": "4.1.11",
     "nx": "22.7.8",
     "rxjs": "7.8.2",
     "typescript": "~5.9.3",
-    "vitest": "4.1.10"
+    "vitest": "4.1.11"
   }
 }
