@@ -13,7 +13,7 @@ jobs:
     name: contract
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: sneat-co/cicd/actions/setup-pnpm-node@11e88b45a49ef9626f6bfa8e54c317772e848a93
         with:
           working-directory: frontend
@@ -28,7 +28,7 @@ jobs:
         with:
           coverage-path: frontend/coverage
           minimum-percent: 100
-      - uses: actions/setup-go@v6
+      - uses: actions/setup-go@v7
         with:
           go-version-file: backend/go.mod
       - name: Backend vet, race test, build, and test
